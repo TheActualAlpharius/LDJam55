@@ -62,7 +62,7 @@ export class GameComponent implements OnInit {
     this.yourGuys.push({
       x: this.spawnPoint,
       health: 10,
-      damage: 20,
+      damage: 30,
       speed: 2,
       id: uuidv4(),
       imgSrc: '/assets/skeleton.png',
@@ -73,12 +73,12 @@ export class GameComponent implements OnInit {
   spawnEnemy() {
     this.enemyGuys.push({
       x: 902,
-      damage: 5,
-      health: 20,
+      damage: 30,
+      health: 40,
       id: uuidv4(),
       speed: -4,
       imgSrc: '/assets/zombie.png',
-      attack: (i) => {if(i == 0) this.enemyHurtBoxes.push({damage: 3, id: uuidv4(), speed: 0, ttl: 3, x: this.enemyGuys[i].x - 32, y: this.groundLevel})}
+      attack: (i) => {if(i == 0) this.enemyHurtBoxes.push({damage: 3, id: uuidv4(), speed: 0, ttl: 0, x: this.enemyGuys[i].x - 32, y: this.groundLevel})}
     })
   }
 
@@ -110,11 +110,11 @@ export class GameComponent implements OnInit {
       }),
       //enemy attack
       map(_ => {
+        console.log(this.enemyHurtBoxes.length);
         this.enemyHurtBoxes = this.enemyHurtBoxes
         .map((hurtbox) => {
           this.yourGuys.map((guy, i) => {
             if(this.collisionCheck(hurtbox.id, guy.id)) {
-              console.log(`hit ${guy.id}`)
               guy.health -= hurtbox.damage;
               hurtbox.ttl = 0;
             }
