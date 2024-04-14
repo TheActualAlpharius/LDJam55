@@ -3,15 +3,24 @@ button {
     height: 32px;
     width: 32px;
     cursor: pointer;
+    border: 5px solid burlywood;
+    background-color: burlywood;
+    margin-right: 5px;
+
+}
+button:hover {
+    background-color: gray;
+    opacity: 0.9;
+    
 }
 
 button.skeletonSpawn {
-    background: url('/assets/skeleton.png');
+    background-image: url('/assets/skeleton.png');
     z-index: 10;
 }
 
 button.zombieSpawn {
-    background: url('/assets/zombie.png');
+    background-image: url('/assets/zombie.png');
 }
 
 .bars { 
