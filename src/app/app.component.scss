@@ -2,9 +2,16 @@ button {
     all:unset;
     height: 32px;
     width: 32px;
+    cursor: pointer;
+}
+
+button.skeletonSpawn {
+    background: url('/assets/skeleton.png');
+    z-index: 10000;
+}
+
+button.zombieSpawn {
     background: url('/assets/zombie.png');
-    cursor: pointer
-    
 }
 
 .bars { 
@@ -44,7 +51,7 @@ button {
             top: 0;
             bottom: 0;
             left: 0;
-            width: var(--playerHealth);
+            width: var(--playerMana);
         }
     }
 
@@ -65,6 +72,22 @@ button {
             width: var(--enemyHealth);
         }
     }
+}
+
+.enemy {
+    transform: scaleX(-1);
+}
+
+.playerSpawnBlock {
+    width: 32px;
+    height: 32px;
+    left: 64px;
+}
+
+.enemySpawnBlock {
+    width: 32px;
+    height: 32px;
+    left: 902px;
 }
 
 .container {
