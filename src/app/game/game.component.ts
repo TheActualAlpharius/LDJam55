@@ -13,7 +13,7 @@ export class GameComponent implements OnInit {
 
   spawnPoint = 64;
 
-  MAX_HEALTH = 1000;
+  MAX_HEALTH = 500;
   MAX_MANA = 100;
   enemyHealth = this.MAX_HEALTH;
   playerHealth = this.MAX_HEALTH;

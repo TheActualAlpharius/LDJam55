@@ -16,7 +16,7 @@ import { LossComponent } from './loss/loss.component';
     LossComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule.withServerTransition({ appId: 'serverApp' })
   ],
   providers: [],
   bootstrap: [AppComponent]
