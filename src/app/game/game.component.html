@@ -1,0 +1,24 @@
+<button class="zombieSpawn" (click)=spawnGuy()></button>
+<button class="skeletonSpawn" (click)="spawnSkeleton()"></button>
+
+<div class="bars">
+  <div class="playerBars">
+    <div class="healthBar"></div>
+    <div class="mana"></div>
+  </div>
+  <div class="enemyBars">
+    <div class="healthBar"></div>
+  </div>
+</div>
+
+<div class="container">
+  <img class="PlayerCastle castle gameObject" src="/assets/castle.png" id="PlayerCastle">
+
+  <div class="playerSpawnBlock gameObject" [style.top]="turnToPixels(groundLevel)" id="playerSpawnPoint"></div>
+  <img *ngFor="let guy of yourGuys; index as i;" id='{{guy.id}}' class="guy gameObject" [style.top]="turnToPixels(groundLevel)" [style.left]="turnToPixels(guy.x)" [src]='guy.imgSrc'>
+  <div class="enemySpawnBlock gameObject" [style.top]="turnToPixels(groundLevel)" id="enemySpawnPoint"></div>
+  <img *ngFor="let guy of enemyGuys; index as i;" id='{{guy.id}}' class="guy gameObject enemy" [style.top]="turnToPixels(groundLevel)" [style.left]="turnToPixels(guy.x)" [src]='guy.imgSrc'>
+  <img *ngFor="let hurtbox of playerHurtBoxes" id='{{hurtbox.id}}' class="hurtbox gameObject" [style.left.px]="hurtbox.x" [style.top.px]="hurtbox.y" [src]="hurtbox.src">
+  <img *ngFor="let hurtbox of enemyHurtBoxes" id='{{hurtbox.id}}' class="hurtbox gameObject" [style.left.px]="hurtbox.x+5" [style.top.px]="hurtbox.y" [src]="hurtbox.src">
+  <img class="EnemyCastle castle gameObject" src="/assets/castle.png" [style.left]="'936px'" id="EnemyCastle">
+</div>
